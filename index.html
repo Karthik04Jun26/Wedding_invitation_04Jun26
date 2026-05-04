@@ -24,7 +24,50 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        /* IMAGE SECTION WITH OVERLAY TEXT */
+        /* HEADER WITH NAMES - ABOVE IMAGE */
+        .header-section {
+            background: linear-gradient(135deg, #f5e6d3 0%, #ede0c8 100%);
+            padding: 50px 30px;
+            text-align: center;
+            border-bottom: 2px solid #b8860b;
+        }
+
+        .names-primary {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #6e1a1a;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+
+        .names-secondary {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: #8B7355;
+            letter-spacing: 2px;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .header-divider {
+            width: 80px;
+            height: 1px;
+            background: #b8860b;
+            margin: 15px auto;
+        }
+
+        .header-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            color: #6e1a1a;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* IMAGE SECTION WITH MONOGRAM */
         .photo-section {
             position: relative;
             width: 100%;
@@ -35,28 +78,6 @@
             width: 100%;
             height: auto;
             display: block;
-        }
-
-        /* OVERLAY TEXT ON IMAGE - TOP LEFT */
-        .image-overlay {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            right: auto;
-            bottom: auto;
-            z-index: 10;
-        }
-
-        .overlay-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 400;
-            color: #f5e6d3;
-            text-align: left;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-            letter-spacing: 1px;
-            padding: 0;
-            line-height: 1.2;
         }
 
         /* MONOGRAM SECTION - TOP RIGHT */
@@ -73,30 +94,31 @@
         }
 
         .monogram-circle {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.95);
-            border: 2px solid #b8860b;
+            width: 90px;
+            height: 90px;
+            background: rgba(255, 255, 255, 0.97);
+            border: 3px solid #b8860b;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(10px);
         }
 
         .monogram-text {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
             color: #6e1a1a;
             line-height: 1;
         }
 
         .monogram-ring {
-            font-size: 16px;
+            font-size: 18px;
             color: #b8860b;
-            margin-top: 4px;
+            margin-top: 6px;
         }
 
         .info-section {
@@ -202,13 +224,16 @@
         }
 
         @media (max-width: 600px) {
-            .image-overlay {
-                top: 20px;
-                left: 20px;
+            .header-section {
+                padding: 35px 20px;
             }
 
-            .overlay-text {
-                font-size: 28px;
+            .names-primary {
+                font-size: 36px;
+            }
+
+            .names-secondary {
+                font-size: 22px;
             }
 
             .monogram-section {
@@ -217,12 +242,12 @@
             }
 
             .monogram-circle {
-                width: 70px;
-                height: 70px;
+                width: 75px;
+                height: 75px;
             }
 
             .monogram-text {
-                font-size: 20px;
+                font-size: 22px;
             }
 
             .monogram-ring {
@@ -256,15 +281,21 @@
 
 <div class="main-container">
 
-    <!-- YOUR WEDDING PHOTO WITH OVERLAY TEXT & MONOGRAM -->
+    <!-- ELEGANT HEADER SECTION WITH NAMES -->
+    <div class="header-section">
+        <div class="names-primary">Akshaya G</div>
+        <div class="header-divider"></div>
+        <div class="names-secondary">&</div>
+        <div class="header-divider"></div>
+        <div class="names-primary">Karthikeyan M</div>
+        <div class="header-divider"></div>
+        <div class="header-subtitle">Together Forever</div>
+    </div>
+
+    <!-- YOUR WEDDING PHOTO WITH MONOGRAM -->
     <div class="photo-section">
         <img src="WEDDING_INVITE.jpeg" alt="Karthikeyan and Akshaya Wedding Invitation">
         
-        <!-- TEXT ON TOP LEFT -->
-        <div class="image-overlay">
-            <div class="overlay-text">Akshaya &<br>Karthikeyan</div>
-        </div>
-
         <!-- MONOGRAM ON TOP RIGHT -->
         <div class="monogram-section">
             <div class="monogram-circle">
