@@ -3,71 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation</title>
+    <title>Wedding Invitation - Karthikeyan & Akshaya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: url('WEDDING_INVITE.jpeg') no-repeat center top;
-            background-size: cover;
-            color: #333;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container {
-            background-color: rgba(255, 255, 255, 0.8);
-            margin: 20px auto;
-            padding: 20px;
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f1ec;
+        }
+
+        .main-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* IMAGE DISPLAY - DIRECTLY WITH IMG TAG */
+        .photo-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .info-section {
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #6e1a1a;
+            font-size: 38px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .date-tag {
+            font-family: 'Playfair Display', serif;
+            color: #b8860b;
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            color: #6e1a1a;
+            font-size: 20px;
+            margin: 35px 0 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: #b8860b;
+            margin: 0 auto 25px;
+        }
+
+        /* COUNTDOWN */
+        .countdown-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .countdown-unit {
+            background: #fafaf8;
+            border: 2px solid #b8860b;
             border-radius: 8px;
-            max-width: 600px;
+            padding: 20px 15px;
         }
-        .countdown {
-            font-size: 24px;
-            text-align: center;
-            margin: 20px 0;
+
+        .countdown-value {
+            font-family: 'Cinzel', serif;
+            font-size: 30px;
+            font-weight: bold;
+            color: #6e1a1a;
         }
-        h1, h2, h3 {
-            text-align: center;
+
+        .countdown-text {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
         }
+
+        /* EVENTS */
+        .event {
+            background: #fafaf8;
+            border-left: 4px solid #b8860b;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .event h3 {
+            font-family: 'Cinzel', serif;
+            color: #6e1a1a;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .event p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* BUTTON */
+        .map-button {
+            display: inline-block;
+            background: #6e1a1a;
+            color: white;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .map-button:hover {
+            background: #8b2323;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 15px 0;
+        }
+
         @media (max-width: 600px) {
-            .container {
-                padding: 15px;
+            .info-section {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .countdown-container {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+            }
+
+            .countdown-unit {
+                padding: 15px 10px;
+            }
+
+            .countdown-value {
+                font-size: 24px;
+            }
+
+            .countdown-text {
+                font-size: 10px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Join Us for Our Wedding!</h1>
-        <div class="countdown" id="countdown"></div>
-        <h2>The Couple</h2>
-        <p>John Doe & Jane Smith</p>
-        <h3>Date and Time</h3>
-        <p>May 20, 2026 at 4:00 PM</p>
-        <h3>Venue</h3>
-        <p>Beautiful Garden, 123 Wedding St, City, Country</p>
+<div class="main-container">
+
+    <!-- YOUR WEDDING PHOTO -->
+    <div class="photo-section">
+        <img src="WEDDING_INVITE.jpeg" alt="Karthikeyan and Akshaya Wedding Invitation">
     </div>
 
-    <script>
-        const countDownDate = new Date("May 20, 2026 16:00:00").getTime();
-        const countdownElement = document.getElementById('countdown');
+    <!-- INFORMATION -->
+    <div class="info-section">
+        
+        <h1>Karthikeyan & Akshaya</h1>
+        <p class="date-tag">Save the Date: June 4, 2026</p>
+        
+        <p class="description">
+            We cordially invite you to celebrate the union of two souls in love and share the joy of our special day.
+        </p>
 
-        const countdownFunction = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = countDownDate - now;
+        <!-- COUNTDOWN -->
+        <div class="section-title">Until We Say Forever</div>
+        <div class="countdown-container" id="countdown">
+            <div class="countdown-unit">
+                <div class="countdown-value" id="days">00</div>
+                <div class="countdown-text">Days</div>
+            </div>
+            <div class="countdown-unit">
+                <div class="countdown-value" id="hours">00</div>
+                <div class="countdown-text">Hours</div>
+            </div>
+            <div class="countdown-unit">
+                <div class="countdown-value" id="minutes">00</div>
+                <div class="countdown-text">Minutes</div>
+            </div>
+            <div class="countdown-unit">
+                <div class="countdown-value" id="seconds">00</div>
+                <div class="countdown-text">Seconds</div>
+            </div>
+        </div>
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        <!-- RECEPTION -->
+        <div class="section-title">Reception</div>
+        <div class="divider"></div>
+        <div class="event">
+            <h3>📅 June 3rd, 2026</h3>
+            <p><strong>Time:</strong> 7:00 PM Onwards</p>
+            <p>Join us for an evening of celebration, food, and joy!</p>
+        </div>
 
-            countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        <!-- CEREMONY -->
+        <div class="section-title">Wedding Ceremony</div>
+        <div class="divider"></div>
+        <div class="event">
+            <h3>📅 June 4th, 2026</h3>
+            <p><strong>Time:</strong> 8:00 PM - 9:00 PM</p>
+            <p>Witness the union of Karthikeyan & Akshaya</p>
+        </div>
 
-            if (distance < 0) {
-                clearInterval(countdownFunction);
-                countdownElement.innerHTML = "It's time!";
-            }
-        }, 1000);
-    </script>
+        <!-- VENUE -->
+        <div class="section-title">The Venue</div>
+        <div class="divider"></div>
+        <p class="description">
+            Join us at our wedding venue for a memorable celebration filled with love, laughter, and cherished moments.
+        </p>
+        <a href="https://maps.app.goo.gl/1oFfhLy5EcvepdiG9?g_st=aw" class="map-button" target="_blank" rel="noopener noreferrer">
+            📍 View Location on Maps
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+const weddingDate = new Date("June 4, 2026 20:00:00").getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if (distance > 0) {
+        const days = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+        const hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+        const minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+        const seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
+    } else {
+        document.getElementById("countdown").innerHTML = '<h2 style="grid-column: 1/-1; color: #6e1a1a; font-family: \'Cinzel\', serif; font-size: 24px;">🎉 HAPPY WEDDING DAY! 🎉</h2>';
+    }
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
 
 </body>
 </html>
