@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karthikeyan & Akshaya Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-maroon: #6e1a1a;
+            --gold-accent: #b8860b;
+            --glass-bg: rgba(255, 252, 245, 0.55); /* More transparent */
+            --light-gold: #f4e4c1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4eee1;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Fixed Background */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('WEDDING_INVITE.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            z-index: -2;
+        }
+
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(110, 26, 26, 0.02); /* Nearly invisible overlay */
+            z-index: -1;
+        }
+
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            gap: 30px;
+        }
+
+        /* Enhanced Glass Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            animation: slideInUp 0.8s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 48px rgba(110, 26, 26, 0.2);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1, h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--royal-maroon);
+            margin: 10px 0;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+        }
+
+        h1.names {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--royal-maroon);
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin: 15px 0 0;
+        }
+
+        /* Enhanced Countdown Grid */
+        .countdown-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .time-unit {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px 10px;
+            border-radius: 12px;
+            border: 2px solid var(--gold-accent);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .time-unit:hover {
+            background: rgba(184, 134, 11, 0.2);
+            transform: scale(1.05);
+        }
+
+        .time-value {
+            font-weight: bold;
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            color: var(--royal-maroon);
+            display: block;
+            font-family: 'Cinzel', serif;
+        }
+
+        .time-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #555;
+            letter-spacing: 1px;
+        }
+
+        /* Enhanced Event List */
+        .event-item {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 12px;
+            border-left: 5px solid var(--gold-accent);
+            text-align: left;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .event-item:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateX(8px);
+        }
+
+        .event-item h3 {
+            font-family: 'Cinzel', serif;
+            margin: 0 0 8px;
+            color: var(--royal-maroon);
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+
+        .event-details {
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            color: #444;
+            margin: 0;
+        }
+
+        /* Enhanced Buttons */
+        .btn-map {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--royal-maroon), #8b2323);
+            color: white;
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            margin-top: 20px;
+            box-shadow: 0 6px 20px rgba(110, 26, 26, 0.4);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .btn-map:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(110, 26, 26, 0.6);
+            background: linear-gradient(135deg, #8b2323, #6e1a1a);
+        }
+
+        .btn-map:active {
+            transform: translateY(-1px);
+        }
+
+        /* Decorative Elements */
+        .decoration {
+            color: var(--gold-accent);
+            font-size: 1.5rem;
+            margin: 15px 0;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-wrapper {
+                padding: 30px 15px;
+                gap: 20px;
+            }
+
+            .glass-card {
+                padding: 30px 20px;
+                max-width: 100%;
+            }
+
+            .countdown-container {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 8px;
+            }
+
+            .time-unit {
+                padding: 12px 8px;
+            }
+
+            .time-value {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-wrapper {
+                padding: 20px 10px;
+                gap: 15px;
+            }
+
+            .glass-card {
+                padding: 25px 15px;
+                border-radius: 15px;
+            }
+
+            h1.names {
+                font-size: 1.6rem;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+
+            .countdown-container {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 6px;
+            }
+
+            .time-unit {
+                padding: 10px 5px;
+                border-radius: 8px;
+            }
+
+            .time-value {
+                font-size: 1.2rem;
+            }
+
+            .time-label {
+                font-size: 0.6rem;
+            }
+
+            .event-item {
+                padding: 15px;
+                margin: 10px 0;
+            }
+
+            .btn-map {
+                padding: 12px 24px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .background-container {
+                display: none;
+            }
+
+            .glass-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-container"></div>
+    <div class="background-overlay"></div>
+
+    <div class="main-wrapper">
+        <!-- Main Invitation Header -->
+        <div class="glass-card">
+            <h1 class="names">Karthikeyan & Akshaya</h1>
+            <p class="subtitle">Save the Date: June 4, 2026</p>
+            <div class="decoration">✦ ✦ ✦</div>
+        </div>
+
+        <!-- Live Countdown -->
+        <div class="glass-card">
+            <h2 style="text-align: center;">Until We Say Forever</h2>
+            <div class="countdown-container" id="countdown">
+                <div class="time-unit">
+                    <span class="time-value" id="days">00</span>
+                    <span class="time-label">Days</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-value" id="hours">00</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-value" id="minutes">00</span>
+                    <span class="time-label">Mins</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-value" id="seconds">00</span>
+                    <span class="time-label">Secs</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schedule -->
+        <div class="glass-card">
+            <h2 style="text-align: center;">Celebrations</h2>
+
+            <div class="event-item">
+                <h3>Reception</h3>
+                <p class="event-details">📅 June 3rd, 2026 | ⏰ 7:00 PM onwards</p>
+            </div>
+
+            <div class="event-item">
+                <h3>Wedding Ceremony</h3>
+                <p class="event-details">📅 June 4th, 2026 | ⏰ 8:00 PM - 9:00 PM</p>
+            </div>
+        </div>
+
+        <!-- Location -->
+        <div class="glass-card">
+            <h2 style="text-align: center;">The Venue</h2>
+            <p style="font-size: clamp(0.9rem, 2vw, 1rem); text-align: center; color: #555;">Join us at our wedding venue.</p>
+            <div style="text-align: center;">
+                <a href="https://maps.app.goo.gl/1oFfhLy5EcvepdiG9?g_st=aw" class="btn-map" target="_blank" rel="noopener noreferrer">📍 View Location on Maps</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set your wedding date here
+        const weddingDate = new Date("June 4, 2026 20:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const d = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+            const h = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            const m = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            const s = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+
+            document.getElementById("days").innerHTML = d;
+            document.getElementById("hours").innerHTML = h;
+            document.getElementById("minutes").innerHTML = m;
+            document.getElementById("seconds").innerHTML = s;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.querySelector('.countdown-container').innerHTML = '<h2 style="grid-column: 1/-1; text-align: center; color: var(--royal-maroon); font-family: \'Cinzel\', serif;">🎉 HAPPY WEDDING DAY! 🎉</h2>';
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
