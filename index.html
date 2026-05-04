@@ -3,34 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation</title>
+    <title>Karthikeyan & Akshaya - Save the Date</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            background: url('path_to_your_image.jpg') no-repeat center center fixed;
-            background-size: cover;
+            box-sizing: border-box;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8); /* Reduced opacity for visibility */
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f5f0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* Image Section - FULL WIDTH, CLEAR VISIBILITY */
+        .image-section {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            background: #e8d4c4;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* White Content Sections */
+        .content-section {
+            padding: 40px 25px;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .content-section:last-child {
+            border-bottom: none;
+        }
+
+        /* Header Styling */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #8B7355;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            color: #8B7355;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            color: #b8860b;
+            font-style: italic;
+            margin: 10px 0 20px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: #b8860b;
+            margin: 15px auto 20px;
+        }
+
+        /* Countdown Styling */
+        .countdown-wrapper {
+            margin: 30px 0;
+        }
+
+        .countdown-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .time-unit {
+            background: #f8f5f0;
+            padding: 20px 10px;
             border-radius: 10px;
-            padding: 20px;
+            border: 2px solid #b8860b;
         }
-        /* Remove or adjust overlay transparency */
-        .overlay {
-            display: none; /* Remove or adjust this to control visibility */
+
+        .time-value {
+            font-weight: 700;
+            font-size: 24px;
+            color: #8B7355;
+            font-family: 'Cinzel', serif;
+            display: block;
+        }
+
+        .time-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Event Details */
+        .event-details {
+            text-align: left;
+            margin: 20px 0;
+            padding: 20px;
+            background: #fafaf8;
+            border-left: 4px solid #b8860b;
+            border-radius: 5px;
+        }
+
+        .event-details h3 {
+            font-family: 'Cinzel', serif;
+            color: #8B7355;
+            font-size: 16px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .event-details p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+
+        /* Button Styling */
+        .btn-location {
+            display: inline-block;
+            background: #8B7355;
+            color: white;
+            padding: 14px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn-location:hover {
+            background: #6e5446;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Text Styling */
+        .description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+
+        .highlights {
+            color: #999;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .container {
+                box-shadow: none;
+            }
+
+            .content-section {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 16px;
+            }
+
+            .countdown-container {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 8px;
+            }
+
+            .time-unit {
+                padding: 15px 8px;
+            }
+
+            .time-value {
+                font-size: 20px;
+            }
+
+            .time-label {
+                font-size: 10px;
+            }
+        }
+
+        .decoration {
+            color: #b8860b;
+            font-size: 20px;
+            letter-spacing: 8px;
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
-    <div class="glass-card">
-        <h1>Your Wedding Invitation</h1>
-        <p>We invite you to join us on our special day...</p>
+
+<div class="container">
+    
+    <!-- HERO IMAGE SECTION - FULLY VISIBLE -->
+    <div class="image-section">
+        <img src="WEDDING_INVITE.jpeg" alt="Karthikeyan & Akshaya Wedding">
     </div>
-    <script>
-        // Fixing the typo
-        document.getElementById("hours");
-        // More JavaScript code...
-    </script>
+
+    <!-- Main Title Section -->
+    <div class="content-section">
+        <h1>We Are Getting Married</h1>
+        <div class="divider"></div>
+        <p class="description">
+            We cordially invite you to celebrate the union of two souls in love and share the joy of our special day.
+        </p>
+    </div>
+
+    <!-- Countdown Section -->
+    <div class="content-section">
+        <h2>Save The Date</h2>
+        <div class="countdown-wrapper">
+            <div class="countdown-container" id="countdown">
+                <div class="time-unit">
+                    <span class="time-value" id="days">00</span>
+                    <span class="time-label">Days</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-value" id="hours">00</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-value" id="minutes">00</span>
+                    <span class="time-label">Minutes</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-value" id="seconds">00</span>
+                    <span class="time-label">Seconds</span>
+                </div>
+            </div>
+        </div>
+        <p class="highlights">Until our special day arrives...</p>
+    </div>
+
+    <!-- Reception Section -->
+    <div class="content-section">
+        <h2>Reception</h2>
+        <div class="event-details">
+            <h3>📅 June 3rd, 2026</h3>
+            <p><strong>Time:</strong> 7:00 PM Onwards</p>
+            <p>Join us for an evening of celebration, food, and joy!</p>
+        </div>
+    </div>
+
+    <!-- Wedding Ceremony Section -->
+    <div class="content-section">
+        <h2>Wedding Ceremony</h2>
+        <div class="event-details">
+            <h3>📅 June 4th, 2026</h3>
+            <p><strong>Time:</strong> 8:00 PM - 9:00 PM</p>
+            <p>Witness the union of Karthikeyan & Akshaya</p>
+        </div>
+    </div>
+
+    <!-- Venue Section -->
+    <div class="content-section">
+        <h2>Venue Details</h2>
+        <p class="description">
+            Join us at our wedding venue for a memorable celebration filled with love, laughter, and cherished moments.
+        </p>
+        <a href="https://maps.app.goo.gl/1oFfhLy5EcvepdiG9?g_st=aw" class="btn-location" target="_blank" rel="noopener noreferrer">
+            📍 View Location on Maps
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="content-section" style="padding: 30px 25px; font-size: 12px; color: #999;">
+        <p>Looking forward to celebrating with you!</p>
+        <p style="margin-top: 10px;">Karthikeyan & Akshaya</p>
+    </div>
+
+</div>
+
+<script>
+    // Set wedding date
+    const weddingDate = new Date("June 4, 2026 20:00:00").getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance > 0) {
+            const days = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+            const hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            const minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            const seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+        } else {
+            document.querySelector('.countdown-wrapper').innerHTML = '<h2 style="color: #8B7355; font-family: \'Cinzel\', serif;">🎉 Happy Wedding Day! 🎉</h2>';
+        }
+    }
+
+    // Update countdown every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+</script>
+
 </body>
 </html>
